@@ -1,0 +1,95 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+nav {
+    background: black;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+}
+
+nav .mainMenu {
+    display: flex;
+    list-style: none;
+}
+
+nav .mainMenu li a{
+    display: inline-block;
+    padding: 15px;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: white;
+    font-size: 1.5rem;
+}
+
+nav .mainMenu li a:hover{
+    text-decoration: underline;
+    color: gray;
+}
+
+nav .openMenu{
+    font-size: 2rem;
+    margin: 20px;
+    display: none;
+    cursor: pointer;
+}
+
+nav .openMenu, .closeMenu, .icons i{
+    font-size:2rem;
+    display: none;
+    cursor: pointer;
+}
+
+
+.fa-facebook:hover{color: #0062ff;}
+
+.fa-finstagram:hover{color: rgb(255, 0, 191);}
+
+.fa-twitter:hover{color: #79abfa;}
+
+.fa-github:hover{color: #12284c;}
+
+nav .logo{
+    margin: 6px;
+    font-size: 25px;
+    cursor: pointer;
+}
+
+@media(max-width: 800px){
+    nav .mainMenu{
+        height: 100vh;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 10;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background: black;
+        transition: top 1s ease;
+        display: none;
+    }
+    nav .mainMenu .closeMenu{
+        display: block;
+        position: absolute;
+        top: 20px;
+        right: 20px;
+    }
+    nav .openMenu{
+        display:block;
+    }
+    nav .mainMenu li a:hover{
+        background: none;
+        color: gray;
+        font-size: 1.6rem;
+        text-decoration: underline;
+    }
+    .icons i{
+        display: inline-block;
+        padding: 12px;
+    }
+}
