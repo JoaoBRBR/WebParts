@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transição suave</title>
+</head>
+<style>
+    body{
+        background-color: black;
+        color: white;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        padding:0;
+        margin:0;
+        font-size: 32px;
+    }
+    section{
+        display: grid;
+        place-items: center;
+        align-content: center;
+        min-height: 100vh;
+    }
+    .hidden{
+        opacity: 0;
+        filter: blur(10px);
+        transform: translateX(-100%);
+        transition: all 1s;
+    }
+    .show{
+        opacity: 1;
+        filter: blur(0);
+        transform: translateX(0);
+    }
+</style>
+<body>
+    <br>
+    <section class="hidden">
+        <h1>Teste Simples</h1>
+        <p>Animação suave e Bonita</p>
+    </section>
+    <br>
+    <section class="hidden">
+        <h1>Fica Muito Legal</h1>
+        <p>Estou aprendendo</p>
+    </section>
+    <br>
+    <section class="hidden">
+        <h1>Que Dia Bonito</h1>
+        <p>Fim da Pagina</p>
+    </section>
+    <br>
+
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                console.log(entry)
+                if(entry.isIntersecting){
+                    entry.target.classList.add('show');
+                }else{
+                    entry.target.classList.remove('show');
+                }
+            });
+        });
+        const hiddenElements = document.querySelectorAll('.hidden');
+        hiddenElements.forEach((el) => observer.observe(el));
+    </script>
+
+</body>
+</html>
